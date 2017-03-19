@@ -18,13 +18,6 @@ module.exports = function(config) {
 
     browsers: ['Chrome'],
 
-    plugins: [
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-jasmine',
-      'karma-junit-reporter'
-    ],
-
     junitReporter: {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'

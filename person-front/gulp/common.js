@@ -3,16 +3,12 @@
 // export common require
 exports.gulp             = require('gulp');
 exports.$                = require('gulp-load-plugins')();
-exports.karma            = require('karma');
 exports.runSequence      = require('run-sequence');
 exports.del              = require('del');
 exports.wiredep          = require('wiredep').stream;
 exports.browserSync      = require('browser-sync').create();
 exports.reload           = this.browserSync.reload;
 exports.autoprefixer     = require('autoprefixer');
-exports.googleTagManager = require('./google-tag-manager');
-exports.chaordicTagManager = require('./chaordic-tag-manager');
-exports.adobeTagManager = require('./adobe-tag-manager');
 
 // export common dirs
 exports.dirs = {
@@ -44,9 +40,6 @@ exports.dirs = {
     },
     build: {
         path: 'dist'
-    },
-    test: {
-        path: '/../test/karma.conf.js'
     },
     temporary: {
         root: {

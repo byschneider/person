@@ -20,14 +20,6 @@ common.gulp.task('webdriver_update', webdriver_update);
 // seleniumServerJar in your protractor.conf.js
 common.gulp.task('webdriver_standalone', webdriver_standalone);
 
-
-common.gulp.task('test', function(done) {
-    new common.karma.Server({
-        configFile: __dirname + common.dirs.test.path,
-        singleRun: true
-    }, done).start();
-});
-
 var protractorRunner = function(done, autoStart){
     common.gulp.src(["./test/e2e/*.js"])
         .pipe(gulpProtractorAngular({

@@ -1,7 +1,55 @@
 <h2>Listagem de candidatos</h2>
 
-<ul>
-    <li ng-repeat="person in model.people">
-        {{person.nome}}
-    </li>
-</ul>
+<div class="bs-callout clearfix bs-callout-primary" ng-repeat="person in model.people">
+    <h4>{{person.nome}}</h4>
+    <div class="row">
+        <div ng-if="person.dataNascimento" class="col-xs-12 col-sm-6">
+            <label for="nascimento">Data de nascimento</label>
+            <p>{{person.dataNascimento | date : 'dd/MM/yyyy'}}</p>
+        </div>
+        <div ng-if="person.email" class="col-xs-12 col-sm-6">
+            <label for="email">E-mail</label>
+            <p>{{person.email}}</p>
+        </div>
+        <div ng-if="person.telefoneRedidencial" class="col-xs-12 col-sm-6">
+            <label for="telefone-residencial">Telefone residêncial</label>
+            <p>{{person.telefoneResidencial}}</p>
+        </div>
+        <div ng-if="person.telefoneCelular" class="col-xs-12 col-sm-6">
+            <label for="telefone-celular">Telefone celular</label>
+            <p>{{person.telefoneCelular}}</p>
+        </div>
+        <div ng-if="person.sexo" class="col-xs-12 col-sm-6">
+            <label for="sexo">Sexo</label>
+            <p>{{person.sexo}}</p>
+        </div>
+        <div ng-if="person.tipoDeficiencia" class="col-xs-12 col-sm-6">
+            <label>Tipo de deficiência</label>
+            <p>{{person.tipoDeficiencia}}</p>
+        </div>
+        <div ng-if="person.detalhesDeficiencia" class="col-xs-12 col-sm-6">
+            <label for="detalhes-deficiencia">Detalhes da deficiência</label>
+            <p>{{person.detalhesDeficiencia}}</p>
+        </div>
+        <div ng-if="person.endereco" class="col-xs-12 col-sm-6">
+            <label for="endereco">Endereço completo</label>
+            <p>{{person.endereco}}</p>
+        </div>
+        <div ng-if="person.cidade" class="col-xs-12 col-sm-6">
+            <label for="cidade">Cidade/UF</label>
+            <p>{{person.cidade}}</p>
+        </div>
+        <div ng-if="person.cep" class="col-xs-12 col-sm-6">
+            <label for="cep">Cep</label>
+            <p>{{person.cep}}</p>
+        </div>
+        <div ng-if="person.detalhesCurriculo" class="col-xs-12 col-sm-6">
+            <label for="curriculo">Mini currículo</label>
+            <p>{{person.detalhesCurriculo}}</p>
+        </div>
+        <div ng-if="person.areaAtuacao" class="col-xs-12 col-sm-6">
+            <label for="atuacao">Área de atuação desejável</label>
+            <p>{{person.areaAtuacao}}</p>
+        </div>
+    </div>
+</div>

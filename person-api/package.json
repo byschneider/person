@@ -1,7 +1,6 @@
 {
   "name": "person-api",
   "version": "0.1.0",
-  "description": "REST WebAPI powered by Koa as server and  MongoDB as database",
   "main": "index.js",
   "private": true,
   "license": "MIT",

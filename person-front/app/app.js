@@ -2,14 +2,13 @@
 
 (function () {
     var app = angular.module('myApp', [
-    'ui.router',
-    'myApp.version'
+    'ui.router'
     ]);
 
     var runAppFunction = function ($rootScope, $state, authEvents, $timeout, atenticacaoService) {
         $rootScope.$state = $state;
 
-        $state.go('view1', {}, { reload: true });
+        $state.go('cadastro', {}, { reload: true });
     };
 
     app.run(

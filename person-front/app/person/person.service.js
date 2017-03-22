@@ -3,6 +3,26 @@
     var basketService = function ($q,
         $http) {
 
+        var enumSexo = [
+            { value: 0, description: "Feminino" },
+            { value: 1, description: "Masculino" },
+        ];
+
+        var enumDeficiencias = {
+            fisica: {
+                descricao: 'Física'
+            },
+            auditiva: {
+                descricao: 'Auditiva'
+            },
+            visual: {
+                descricao: 'Visual'
+            },
+            mental: {
+                descricao: 'Mental'
+            }
+        };
+
         var urlPerson = 'http://localhost:3000/api/v1/person';
 
         var handleResponse = function (response, defer) {
@@ -57,16 +77,37 @@
         };
 
         var listPerson = function () {
-            return callApiGet(urlPerson);  
+            return callApiGet(urlPerson);
         };
 
         var createPerson = function (person) {
             return callApiPost(urlPerson, person);
         };
 
+        var getDescription = function (id, list) {
+            var description;
+
+            for (var index = 0; index < list.length; index++) {
+                var item = list[index];
+                if (item.value === Number(id)) {
+                    description = item.description;
+                    break;
+                }
+            }
+
+            return description;
+        }
+
+        var getGender = function (id) {
+            return getDescription(id, enumSexo);
+        };
+
         return {
             createPerson: createPerson,
-            listPerson: listPerson
+            listPerson: listPerson,
+            enumSexo: enumSexo,
+            enumDeficiencias: enumDeficiencias,
+            getGender: getGender
         };
     };
     angular.module('myApp')

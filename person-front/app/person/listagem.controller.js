@@ -23,6 +23,8 @@
         };
 
         init();
+
+        $scope.getGender = personService.getGender;
     };
 
     var route = function ($stateProvider) {

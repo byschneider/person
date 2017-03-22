@@ -4,12 +4,21 @@ const Person = require('../models/person');
 
 function create(req, res) {
     let person = new Person();
-    person.curriculum.name = req.body.name;
-    person.curriculum.birthday = req.body.birthday;
-    person.curriculum.phone = req.body.phone;
-    person.curriculum.email = req.body.email;
+    person.nome = req.body.nome;
+    person.dataNascimento = req.body.dataNascimento;
+    person.email = req.body.email;
+    person.telefoneRedidencial = req.body.telefoneRedidencial;
+    person.telefoneCelular = req.body.telefoneCelular;
+    person.sexo = req.body.sexo;
+    person.tipoDeficiencia = req.body.tipoDeficiencia;
+    person.detalhesDeficiencia = req.body.detalhesDeficiencia;
+    person.endereco = req.body.endereco;
+    person.cidade = req.body.cidade;
+    person.cep = req.body.cep;
+    person.detalhesCurriculo = req.body.detalhesCurriculo;
+    person.areaAtuacao = req.body.areaAtuacao;
 
-    person.save(function save(err) {
+    person.save().then(function save(err) {
         if (err) res.send(err);
 
         res.json({
@@ -20,7 +29,7 @@ function create(req, res) {
 }
 
 function retrieveAll(req, res) {
-    Person.find(function find(err, persons) {
+    Person.find().then(function find(err, persons) {
         if (err) res.send(err);
 
         res.json(persons);
@@ -28,7 +37,7 @@ function retrieveAll(req, res) {
 }
 
 function retrieveById(req, res) {
-    Person.findById(req.params.id, function findById(err, person) {
+    Person.findById(req.params.id).then(function findById(err, person) {
         if (err) res.send(err);
 
         res.json(person);
@@ -36,13 +45,22 @@ function retrieveById(req, res) {
 }
 
 function update(req, res) {
-    Person.findById(req.params.id, function findById(err, person) {
+    Person.findById(req.params.id).then(function findById(err, person) {
         if (err) res.send(err);
 
-        person.curriculum.name = req.body.name;
-        person.curriculum.birthday = req.body.birthday;
-        person.curriculum.phone = req.body.phone;
-        person.curriculum.email = req.body.email;
+        person.nome = req.body.nome;
+        person.dataNascimento = req.body.dataNascimento;
+        person.email = req.body.email;
+        person.telefoneRedidencial = req.body.telefoneRedidencial;
+        person.telefoneCelular = req.body.telefoneCelular;
+        person.sexo = req.body.sexo;
+        person.tipoDeficiencia = req.body.tipoDeficiencia;
+        person.detalhesDeficiencia = req.body.detalhesDeficiencia;
+        person.endereco = req.body.endereco;
+        person.cidade = req.body.cidade;
+        person.cep = req.body.cep;
+        person.detalhesCurriculo = req.body.detalhesCurriculo;
+        person.areaAtuacao = req.body.areaAtuacao;
 
         person.save(function save(err) {
             if (err) res.send(err);
@@ -58,7 +76,7 @@ function update(req, res) {
 function remove(req, res) {
     Person.remove({
         _id: req.params.id
-    }, function remove(err, person) {
+    }).then(function remove(err, person) {
         if (err) res.send(err);
 
         res.json({ person });

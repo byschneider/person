@@ -25,6 +25,7 @@
         init();
 
         $scope.getGender = personService.getGender;
+        $scope.enumDeficiencias = personService.enumDeficiencias;
     };
 
     var route = function ($stateProvider) {

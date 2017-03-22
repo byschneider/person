@@ -7,7 +7,7 @@ router.use(function middleware(req, res, next) {
 });
 
 router.use('/person', require('../api/person'));
-router.use('/image', require('../api/images'));
+// router.use('/image', require('../api/images'));
 
 module.exports = {
     router,

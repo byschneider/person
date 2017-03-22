@@ -25,7 +25,11 @@
         </div>
         <div ng-if="person.tipoDeficiencia" class="col-xs-12 col-sm-6">
             <label>Tipo de deficiência</label>
-            <p>{{person.tipoDeficiencia}}</p>
+            <p>
+                <span ng-repeat="(key, val) in person.tipoDeficiencia">
+                    {{(enumDeficiencias[key]).descricao}}<span ng-if="!$last">,</span>
+                </span>
+            </p>
         </div>
         <div ng-if="person.detalhesDeficiencia" class="col-xs-12 col-sm-6">
             <label for="detalhes-deficiencia">Detalhes da deficiência</label>

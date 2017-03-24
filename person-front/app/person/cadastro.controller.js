@@ -5,8 +5,11 @@
     var cadastroControllerFunction = function ($scope,
         personService
     ) {
+        var model = {};
+
+
         var sendForm = function () {
-            personService.createPerson($scope.model)
+            personService.createPerson(model.person)
                 .then(function (response) {
                     alert('sucesso');
                 }, function (response) {
@@ -15,7 +18,15 @@
                 );
         };
 
+        var init = function () {
+            $scope.model = model;
+        };
+
+        init();
+
         $scope.sendForm = sendForm;
+        $scope.model.tiposDeficiencia = personService.enumDeficiencias;
+        $scope.model.sexos = personService.enumSexo;
     };
 
     var route = function ($stateProvider) {

@@ -2,7 +2,9 @@
 
 (function () {
     var app = angular.module('myApp', [
-    'ui.router'
+    'ui.router',
+    'ui.mask',
+    'idf.br-filters'
     ]);
 
     var runAppFunction = function ($rootScope, $state, authEvents, $timeout, atenticacaoService) {

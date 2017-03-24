@@ -1,73 +1,71 @@
 <h2>Cadastro de candidato</h2>
-<form>
+<form ng-submit="sendForm()" name="form">
     <div class="row">
         <div class="col-xs-6">
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error' : form.nome.$invalid && !form.nome.$pristine }">
                 <label for="nome">Nome:</label>
-                <input ng-model="model.nome" ng-model="model.nome" type="text" class="form-control" id="nome" placeholder="Nome">
+                <input required ng-model="model.person.nome" type="text" class="form-control" name="nome" placeholder="Nome">
             </div>
             <div class="form-group">
                 <label for="nascimento">Data de nascimento:</label>
-                <input ng-model="model.dataNascimento" type="text" class="form-control" id="nascimento" placeholder="Data de Nascimento">
+                <input ui-mask="99/99/9999" ng-model="model.person.dataNascimento" type="text" class="form-control" id="nascimento" ui-mask-placeholder placeholder="Data de Nascimento">
             </div>
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input ng-model="model.email" type="email" class="form-control" id="email" placeholder="Enter email">
+                <input ng-model="model.person.email" type="email" class="form-control" id="email" placeholder="Enter email">
             </div>
             <div class="form-group">
                 <label for="telefone-residencial">Telefone residêncial:</label>
-                <input ng-model="model.telefoneResidencial" type="text" class="form-control" id="telefone-residencial" placeholder="Telefone residêncial">
+                <input ui-mask="(99) 9999-9999" ng-model="model.person.telefoneResidencial" type="text" class="form-control" id="telefone-residencial" ui-mask-placeholder placeholder="Telefone residêncial">
             </div>
             <div class="form-group">
                 <label for="telefone-celular">Telefone celular:</label>
-                <input ng-model="model.telefoneCelular" type="text" class="form-control" id="telefone-celular" placeholder="Telefone celular">
+                <input ui-mask="(99) 9?9999-9999" ng-model="model.person.telefoneCelular" type="text" class="form-control" id="telefone-celular" ui-mask-placeholder placeholder="Telefone celular">
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error' : form.sexo.$invalid && !form.sexo.$pristine }">
                 <label for="sexo">Sexo:</label>
-                <input ng-model="model.sexo" type="text" class="form-control" id="sexo" placeholder="Sexo">
+                <select class="form-control" 
+                        ng-model="model.person.sexo"
+                        name="sexo"
+                        required
+                        ng-options="sexo.value as sexo.description for sexo in model.sexos">
+                        <option value="" ng-if="false"></option>
+                </select>
             </div>
             <div class="form-group">
                 <label>Tipo de deficiência:</label>
-                <div class="checkbox">
-                    <label><input ng-model="model.tipoDeficiencia.fisica" type="checkbox">Física</label>
-                </div>
-                <div class="checkbox">
-                    <label><input ng-model="model.tipoDeficiencia.auditiva" type="checkbox">Auditiva</label>
-                </div>
-                <div class="checkbox">
-                    <label><input ng-model="model.tipoDeficiencia.visual" type="checkbox">Visual</label>
-                </div>
-                <div class="checkbox">
-                    <label><input ng-model="model.tipoDeficiencia.mental" type="checkbox">Mental</label>
+                <div class="checkbox" ng-repeat="(key, value) in model.tiposDeficiencia">
+                    <label><input ng-model="model.person[key]" type="checkbox">{{value.description}}</label>
                 </div>
             </div>
         </div>
         <div class="col-xs-6">
             <div class="form-group">
                 <label for="detalhes-deficiencia">Detalhes da deficiência:</label>
-                <textarea ng-model="model.detalhesDeficiencia" class="form-control" placeholder="Detalhes da deficiência" rows="4" cols="50"></textarea>
+                <textarea ng-model="model.person.detalhesDeficiencia" class="form-control" placeholder="Detalhes da deficiência" rows="4"
+                    cols="50"></textarea>
             </div>
             <div class="form-group">
                 <label for="endereco">Endereço completo:</label>
-                <input ng-model="model.endereco" type="text" class="form-control" id="endereco" placeholder="Endereço completo">
+                <input ng-model="model.person.endereco" type="text" class="form-control" id="endereco" placeholder="Endereço completo">
             </div>
             <div class="form-group">
                 <label for="cidade">Cidade/UF:</label>
-                <input ng-model="model.cidade" type="text" class="form-control" id="cidade" placeholder="Cidade/UF">
+                <input ng-model="model.person.cidade" type="text" class="form-control" id="cidade" placeholder="Cidade/UF">
             </div>
             <div class="form-group">
                 <label for="cep">Cep:</label>
-                <input ng-model="model.cep" type="text" class="form-control" id="cep" placeholder="Cep">
+                <input ui-mask="99999-999" ng-model="model.person.cep" type="text" class="form-control" id="cep" ui-mask-placeholder placeholder="Cep">
             </div>
             <div class="form-group">
                 <label for="curriculo">Mini currículo:</label>
-                <textarea ng-model="model.detalhesCurriculo" class="form-control" placeholder="Mini currículo" rows="4" cols="50"></textarea>
+                <textarea ng-model="model.person.detalhesCurriculo" class="form-control" placeholder="Mini currículo" rows="4" cols="50"></textarea>
             </div>
             <div class="form-group">
                 <label for="atuacao">Área de atuação desejável:</label>
-                <input ng-model="model.areaAtuacao" type="text" class="form-control" id="atuacao" placeholder="Área de atuação desejável">
+                <input ng-model="model.person.areaAtuacao" type="text" class="form-control" id="atuacao" placeholder="Área de atuação desejável">
             </div>
         </div>
     </div>
-    <button ng-click="sendForm()" class="btn btn-default">Enviar</button>
+    <button type="submit" class="btn btn-default">Enviar</button>
 </form>

@@ -10,18 +10,37 @@
 
         var enumDeficiencias = {
             fisica: {
-                descricao: 'Física'
+                description: 'Física'
             },
             auditiva: {
-                descricao: 'Auditiva'
+                description: 'Auditiva'
             },
             visual: {
-                descricao: 'Visual'
+                description: 'Visual'
             },
             mental: {
-                descricao: 'Mental'
+                description: 'Mental'
             }
         };
+
+        // var enumDeficiencias = [
+        //     {
+        //         value: 'fisica',
+        //         description: 'Física'
+        //     },
+        //     {
+        //         value: 'auditiva',
+        //         description: 'Auditiva'
+        //     },
+        //     {
+        //         value: 'visual',
+        //         description: 'Visual'
+        //     },
+        //     {
+        //         value: 'mental',
+        //         description: 'Mental'
+        //     }
+        // ];
 
         var urlPerson = 'http://localhost:3000/api/v1/person';
 

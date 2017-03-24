@@ -6,7 +6,7 @@ const Person = require('../models/person');
 function create(req, res) {
     let person = new Person();
     person.nome = req.body.nome;
-    person.dataNascimento = req.body.dataNascimento;
+    person.dataNascimento = moment(req.body.dataNascimento, 'DD/MM/YYYY').toDate();
     person.email = req.body.email;
     person.telefoneRedidencial = req.body.telefoneRedidencial;
     person.telefoneCelular = req.body.telefoneCelular;

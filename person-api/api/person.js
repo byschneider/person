@@ -8,7 +8,7 @@ function create(req, res) {
     person.nome = req.body.nome;
     person.dataNascimento = moment(req.body.dataNascimento, 'DD/MM/YYYY').toDate();
     person.email = req.body.email;
-    person.telefoneRedidencial = req.body.telefoneRedidencial;
+    person.telefoneResidencial = req.body.telefoneResidencial;
     person.telefoneCelular = req.body.telefoneCelular;
     person.sexo = req.body.sexo;
     person.tipoDeficiencia = req.body.tipoDeficiencia;
@@ -52,7 +52,7 @@ function update(req, res) {
         person.nome = req.body.nome;
         person.dataNascimento = req.body.dataNascimento;
         person.email = req.body.email;
-        person.telefoneRedidencial = req.body.telefoneRedidencial;
+        person.telefoneResidencial = req.body.telefoneResidencial;
         person.telefoneCelular = req.body.telefoneCelular;
         person.sexo = req.body.sexo;
         person.tipoDeficiencia = req.body.tipoDeficiencia;

@@ -18,6 +18,12 @@
                 );
         };
 
+        var validateForm = function () {
+            if ($scope.form.$invalid && $scope.form.$pristine) {
+                $scope.form.$setDirty();
+            }
+        };
+
         var init = function () {
             $scope.model = model;
         };
@@ -25,6 +31,7 @@
         init();
 
         $scope.sendForm = sendForm;
+        $scope.validateForm = validateForm;
         $scope.model.tiposDeficiencia = personService.enumDeficiencias;
         $scope.model.sexos = personService.enumSexo;
     };

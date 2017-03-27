@@ -1,1 +1,1 @@
-web: node person-api/index.js
+web: node person-front/gulp.js
